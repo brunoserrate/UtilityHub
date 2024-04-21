@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@100;300;600&display=swap');
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+input,
+a,
+li {
+    font-family: Poppins;
+}
+
+/* Estilos da tela */
+body {
+    background-color: #1D243D;
+    margin: 0;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Estilos do container */
+.container {
+    background-color: #4f5672;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    width: 350px;
+    word-wrap: break-word;
+}
+
+/* ESTILO DOS TITULOS */
+.titulos {
+    text-transform: uppercase;
+    letter-spacing: 8px;
+}
+
+/* Estilos dos inputs */
+.input {
+    background-color: #e8efff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 0 10px 10px;
+    margin: 10px -10px;
+    width: 100%;
+}
+
+/* Estilos dos botões */
+.btn {
+    background-color: #d3a518;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Poppins';
+    transition: padding 0.3s ease, background-color 0.3s ease;
+}
+
+.btn:hover {
+    padding: 11.5px;
+    background-color: #d7b85b;
+}
+
+/* Estilo para lista de serviços */
+.servicos {
+    background-color: #212942;
+    /* Cor de fundo */
+    padding: 20px;
+    /* Espaçamento interno */
+    border-radius: 10px;
+    /* Borda arredondada */
+    color: #dfdeee;
+    /* Cor do texto */
+    text-align: center;
+    /* Alinhamento do texto */
+    font-family: 'Source Sans Pro', sans-serif;
+    /* Fonte do texto */
+    margin-top: 20px;
+    /* Espaço superior */
+}
+
+.servicos h4 {
+    font-size: 18px;
+    /* Tamanho da fonte do título */
+    margin: 0 0 20px;
+    /* Espaçamento abaixo do título */
+}
+
+.servicos ul {
+    list-style: none;
+    /* Remover marcadores de lista padrão */
+    padding: 0;
+    /* Remover preenchimento da lista */
+}
+
+.servicos li {
+    font-size: 16px;
+    /* Tamanho da fonte dos itens da lista */
+    margin: 5px 0;
+    /* Espaçamento entre os itens da lista */
+}
+
+
+.botoes {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.titleUserRegister {
+    text-transform: uppercase;
+    font-size: 28px;
+}
+
+.a_button {
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #d3a518;
+    padding: 6px 15px;
+    border-radius: 5px;
+    transition: padding 0.3s ease, background-color 0.3s ease;
+}
+
+.a_button:hover {
+    padding: 7px 16px;
+    background-color: #d7b85b;
+}
+
+.a_link {
+    text-decoration: none;
+    color: #7c8ed6;
+}
+
+.a_link:hover {
+    text-decoration: underline;
+}
+
+.p_token {
+    color: #cbd5ff;
+    background: #e4e8f945;
+    border-radius: 10px;
+    padding: 12px 17px;
+}

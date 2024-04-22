@@ -70,15 +70,21 @@ class Database {
             }
 
         } catch (\PDOException $exception) {
-            echo json_encode(array("error" => "Database connection error: " . $exception->getMessage()));
-            die();
+            return [
+                "success" => false,
+                "error" => $exception->getMessage(),
+                "message" => "Failed to connect to the database. Please check your database configuration.",
+                "data" => [
+                    "exception" => $exception->getMessage(),
+                ]
+            ]
         }
     }
 
     private function sqliteConnection()
     {
         if (empty($this->path)) {
-            $this->path = __DIR__ . DIRECTORY_SEPARATOR .  '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR;
+            $this->path = __DIR__ . DIRECTORY_SEPARATOR .  join(DIRECTORY_SEPARATOR, ['..', '..', '..', '']);
         }
 
         $this->conn = new \PDO("sqlite:$this->path$this->db_name$this->extension");

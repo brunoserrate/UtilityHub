@@ -56,23 +56,46 @@ class Database {
     {
 
         try {
-            if ($this->connectionType == "sqlite") {
-                if (empty($this->path)) {
-                    $this->path = __DIR__ . DIRECTORY_SEPARATOR .  '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR;
-                }
+            switch ($this->connectionType) {
+                case 'sqlite':
+                    return $this->sqliteConnection();
+                break;
 
-                $this->conn = new \PDO("sqlite:$this->path$this->db_name$this->extension");
-                $this->conn->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+                case 'mysql':
+                    return $this->mysqlConnection();
+                break;
 
-                if (!file_exists("$this->path$this->db_name$this->extension")) {
-                    $this->conn->exec("CREATE DATABASE $this->db_name");
-                }
-
-                return $this->conn;
+                default:
+                    return $this->sqliteConnection();
             }
+
         } catch (\PDOException $exception) {
             echo json_encode(array("error" => "Database connection error: " . $exception->getMessage()));
             die();
         }
+    }
+
+    private function sqliteConnection()
+    {
+        if (empty($this->path)) {
+            $this->path = __DIR__ . DIRECTORY_SEPARATOR .  '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR;
+        }
+
+        $this->conn = new \PDO("sqlite:$this->path$this->db_name$this->extension");
+        $this->conn->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+
+        if (!file_exists("$this->path$this->db_name$this->extension")) {
+            $this->conn->exec("CREATE DATABASE $this->db_name");
+        }
+
+        return $this->conn;
+    }
+
+    private function mysqlConnection()
+    {
+        $this->conn = new \PDO("mysql:host=$this->host;port=$this->port;dbname=$this->db_name", $this->username, $this->password);
+        $this->conn->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+
+        return $this->conn;
     }
 }

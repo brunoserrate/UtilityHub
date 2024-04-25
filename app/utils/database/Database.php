@@ -77,7 +77,7 @@ class Database {
                 "data" => [
                     "exception" => $exception->getMessage(),
                 ]
-            ]
+            ];
         }
     }
 

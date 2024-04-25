@@ -1,7 +1,10 @@
 <?php
+session_start();
 require_once join(DIRECTORY_SEPARATOR, ['..', '..', 'autoloader.php']);
 
 use App\Utils\Utils;
+
+$_SESSION["requested_via_browser"] = true;
 ?>
 
 <!-- LOGIN -->
@@ -39,7 +42,7 @@ use App\Utils\Utils;
     <div class="container">
         <h1 class="titulos">Login</h1>
         <p>Para acessar o painel de controle, faça login.</p>
-        <p>Se você não tem uma conta, <a class="a_link" href="../registrar/">clique aqui</a> para criar uma.</p>
+        <p>Se você não tem uma conta, <a class="a_link" href="<?= Utils::mountPath(['.','register.php']) ?>">clique aqui</a> para criar uma.</p>
         <br>
 
         <form method="post" action="<?= Utils::mountPath(['..', '..', 'api', 'users', 'login']) ?>" onsubmit="return validateLoginForm()">

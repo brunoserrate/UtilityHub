@@ -3,6 +3,7 @@ session_start();
 
 require_once join(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'autoloader.php']);
 
+use App\Utils\Utils;
 use App\Utils\Helpers\JsonResponser;
 use App\Utils\Helpers\LocalizationHelper;
 use App\Models\UserModel;
@@ -11,8 +12,6 @@ use App\Models\TokenModel;
 $acceptLanguage = isset($_SERVER['HTTP_ACCEPT_LANGUAGE']) ? $_SERVER['HTTP_ACCEPT_LANGUAGE'] : null;
 $languageUsed = LocalizationHelper::getLanguage($acceptLanguage);
 $messageData = include (LocalizationHelper::getLanguagePath() . $languageUsed) . ".php";
-
-var_dump($_POST);
 
 if($_SERVER['REQUEST_METHOD'] !== 'POST'){
     JsonResponser::error([], $messageData['error']['general']['method_not_allowed'], 405, $languageUsed);
@@ -109,7 +108,7 @@ if(empty($token)){
 
 if($renderTemplate){
     // Render template
-    $template = file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'view' . DIRECTORY_SEPARATOR . 'userLoged.php');
+    $template = file_get_contents( Utils::mountPath([__DIR__,'..','..','app','view','userLoged.php']) );
     $template = str_replace('{%token%}', $token, $template);
 
     echo $template;

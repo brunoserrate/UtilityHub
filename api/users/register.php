@@ -1,8 +1,9 @@
 <?php
 session_start();
 
-require_once __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'autoloader.php';
+require_once join(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'autoloader.php']);
 
+use App\Utils\Utils;
 use App\Utils\Helpers\JsonResponser;
 use App\Utils\Helpers\LocalizationHelper;
 use App\Models\UserModel;
@@ -76,7 +77,7 @@ if (!$newUser['success']) {
 
 if ($renderTemplate) {
     // Render template
-    $template = file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'view' . DIRECTORY_SEPARATOR . 'userRegistered.php');
+    $template = file_get_contents( Utils::mountPath([__DIR__,'..','..','app','view','userRegistered.php']) );
 
     echo $template;
 } else {

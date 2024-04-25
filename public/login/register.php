@@ -1,5 +1,8 @@
 <?php
 session_start();
+require_once join(DIRECTORY_SEPARATOR, ['..', '..', 'autoloader.php']);
+
+use App\Utils\Utils;
 
 $_SESSION["requested_via_browser"] = true;
 ?>
@@ -48,7 +51,7 @@ $_SESSION["requested_via_browser"] = true;
         <p>Parar criar uma nova conta, preencha todos os campos a seguir</p>
         <br>
 
-        <form method="post" action="../../api/users/register/" onsubmit="return validateRegistrarForm()">
+        <form method="post" action="<?= Utils::mountPath(['..', '..', 'api', 'users', 'register']) ?>" onsubmit="return validateLoginForm()">
             <input class="input" type="text" placeholder="Nome completo" name="name" required>
             <input class="input" type="text" placeholder="E-mail" name="email" required>
             <input class="input" type="password" placeholder="Senha" name="password" required>

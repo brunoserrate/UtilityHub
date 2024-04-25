@@ -13,7 +13,6 @@ class UserModel extends AbastractModel
     {
         $this->db = new Database();
         $this->db = $this->db->getConnection();
-        $this->createUserTable();
     }
 
     private function createUserTable()
@@ -26,7 +25,7 @@ class UserModel extends AbastractModel
             is_activated INTEGER DEFAULT 1,
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-            deleted_at TIMESTAMP DEFAULT NULL
+            deleted_at TIMESTAMP NULL
         );";
 
         $stmt = $this->db->prepare($query);

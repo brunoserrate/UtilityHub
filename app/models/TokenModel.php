@@ -13,7 +13,6 @@ class TokenModel extends AbastractModel
     {
         $this->db = new Database();
         $this->db = $this->db->getConnection();
-        $this->createTokenTable();
     }
 
     private function createTokenTable()

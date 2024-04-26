@@ -1,0 +1,17 @@
+{
+    "name": "serrate-devs/utility-hub",
+    "description": "Utility Hub",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Bruno Serrate",
+            "email": "bruno.serrate@serratedevs.com.br"
+        }
+    ],
+    "require": {}
+}

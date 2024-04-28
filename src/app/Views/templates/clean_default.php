@@ -6,7 +6,7 @@ $_SESSION["requested_via_browser"] = true;
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" data-bs-theme="auto">
 
 <head>
     <meta charset="UTF-8">
@@ -14,7 +14,7 @@ $_SESSION["requested_via_browser"] = true;
 
     <title><?= $title ?></title>
 
-    <?php foreach ($cdns['css'] as $css): ?>
+    <?php foreach ($cdns['css'] as $css) : ?>
         <link rel="stylesheet" href="<?= $css ?>">
     <?php endforeach; ?>
 
@@ -23,7 +23,7 @@ $_SESSION["requested_via_browser"] = true;
 <body>
     <?= $content ?>
 
-    <?php foreach ($cdns['js'] as $js): ?>
+    <?php foreach ($cdns['js'] as $js) : ?>
         <script src="<?= $js ?>"></script>
     <?php endforeach; ?>
 </body>

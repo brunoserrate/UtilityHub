@@ -1,0 +1,16 @@
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+
+$white: #ffffff;
+
+$theme-colors: (
+    "light":      #e5e2d4,
+    "dark":       #1f0f4a,
+    "primary":    #c44a40,
+    "secondary":  #6d74f9,
+    "info":       #4038e2,
+    "success":    #599f0d,
+    "warning":    #ffbd61,
+    "danger":     #ef0664,
+);

@@ -20,7 +20,7 @@ $_SESSION["requested_via_browser"] = true;
 
 </head>
 
-<body>
+<body class="bg-light">
     <?= $content ?>
 
     <?php foreach ($cdns['js'] as $js) : ?>

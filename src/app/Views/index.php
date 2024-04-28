@@ -20,7 +20,7 @@ use App\Utils\Utils;
             <h2>Uso</h2>
             <p>Para começar a usar a Utility Hub, siga estas etapas simples:</p>
             <ol>
-                <li><a href="https://exemplo.com/registro">Registre-se</a> para obter uma chave de API exclusiva.</li>
+                <li><a href="/login">Registre-se</a> para obter uma chave de API exclusiva.</li>
                 <li>Faça chamadas à API usando sua chave de API para acessar os serviços disponíveis.</li>
                 <li>Leia nossa <a href="https://exemplo.com/documentacao">documentação</a> para obter detalhes sobre como usar cada serviço.</li>
             </ol>

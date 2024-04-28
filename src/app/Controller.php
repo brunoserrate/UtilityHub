@@ -5,7 +5,7 @@ namespace App;
 class Controller {
     protected $template = "clean_default";
     protected $cdns = [
-        'css' => [],
+        'css' => ['css/custom.css'],
         'js' => []
     ];
 

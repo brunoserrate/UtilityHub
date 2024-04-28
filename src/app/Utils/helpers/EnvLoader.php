@@ -2,9 +2,8 @@
 
 namespace App\Utils\Helpers;
 
-define("ENV_PATH", __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR);
-define("ENV_FILE", ENV_PATH . '.env');
-define("ALTERNATIVE_ENV", ENV_PATH . 'env');
+define("ENV_FILE", ROOT_PATH . DIRECTORY_SEPARATOR . '.env');
+define("ALTERNATIVE_ENV", ROOT_PATH . DIRECTORY_SEPARATOR . 'env');
 class EnvLoader
 {
 
@@ -31,5 +30,11 @@ class EnvLoader
             $envData[$line[0]] = trim(str_replace("\"", '', $line[1]));
         }
         return $envData;
+    }
+
+    public static function getEnv($key)
+    {
+        $env = self::loadEnv();
+        return $env[$key];
     }
 }

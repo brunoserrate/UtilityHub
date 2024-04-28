@@ -1,45 +1,28 @@
 <?php
-session_start();
-
 use App\Utils\Utils;
-
-$_SESSION["requested_via_browser"] = true;
 ?>
 
-<!-- LOGIN -->
-<!DOCTYPE html>
-<html lang="en">
+<div class="card">
+    <div class="card-body">
+        <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License">
+        <p>UtilityHubAPI é uma API que oferece serviços úteis para simplificar tarefas do dia a dia.</p>
 
-<head>
+        <h2>Recursos</h2>
+        <ul>
+            <li><strong>Conversor de Unidades:</strong> Converta facilmente entre diferentes unidades de medida, como temperatura, comprimento, peso e muito mais.</li>
+            <li><strong>Gerador de Senhas:</strong> Crie senhas seguras e aleatórias com opções personalizáveis para atender às suas necessidades de segurança.</li>
+            <li><strong>Gerador de Números Aleatórios:</strong> Gere números aleatórios dentro de intervalos específicos para várias aplicações.</li>
+            <li><strong>Outros Serviços Úteis:</strong> Nossa API está em constante evolução, e estamos adicionando novos serviços úteis regularmente.</li>
+        </ul>
 
-</head>
-
-<script>
-    function validateLoginForm() {
-        var email = document.getElementById("email").value;
-        var password = document.getElementById("password").value;
-
-        if (email == "" || password == "") {
-            alert("Preencha todos os campos!");
-            return false;
-        }
-
-        return true;
-    }
-</script>
-
-<body>
-    <div class="container">
-        <h1 class="titulos">Login</h1>
-        <p>Para acessar o painel de controle, faça login.</p>
-        <p>Se você não tem uma conta, <a class="a_link" href="<?= Utils::mountPath(['.','register.php']) ?>">clique aqui</a> para criar uma.</p>
-        <br>
-        <form method="post" action="<?= Utils::mountPath(['..', '..', 'api', 'users', 'login']) ?>" onsubmit="return validateLoginForm()">
-            <input class="input" type="text" placeholder="E-mail" name="email" required>
-            <input class="input" type="password" placeholder="Senha" name="password" required>
-            <button type="submit" class="btn">Entrar</button>
-        </form>
+        <h2>Uso</h2>
+        <p>Para começar a usar a UtilityHubAPI, siga estas etapas simples:</p>
+        <ol>
+            <li><a href="https://exemplo.com/registro">Registre-se</a> para obter uma chave de API exclusiva.</li>
+            <li>Faça chamadas à API usando sua chave de API para acessar os serviços disponíveis.</li>
+            <li>Leia nossa <a href="https://exemplo.com/documentacao">documentação</a> para obter detalhes sobre como usar cada serviço.</li>
+        </ol>
     </div>
-</body>
+</div>
 
-</html>
+tearaerer

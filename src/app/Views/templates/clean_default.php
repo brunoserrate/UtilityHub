@@ -6,7 +6,7 @@ $_SESSION["requested_via_browser"] = true;
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -18,10 +18,6 @@ $_SESSION["requested_via_browser"] = true;
         <link rel="stylesheet" href="<?= $css ?>">
     <?php endforeach; ?>
 
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@100;300;600&display=swap" rel="stylesheet">
 </head>
 
 <body>

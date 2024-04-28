@@ -7,6 +7,7 @@ class Controller {
     protected $cdns = [
         'css' => [
             'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css',
+            "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
         ],
         'js' => [
             'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js',
@@ -41,7 +42,11 @@ class Controller {
         $data['title'] = $this->title . ($this->page ? " - $this->page" : '');
     }
 
-    protected function setCSS($css) {
-        $this->cdns['css'][] = $css;
+    protected function addCSS($css) {
+        $this->cdns['css'][] = "css/$css";
+    }
+
+    protected function addJS($js) {
+        $this->cdns['js'][] = "js/$js";
     }
 }

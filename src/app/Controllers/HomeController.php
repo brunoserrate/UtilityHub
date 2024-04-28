@@ -9,6 +9,8 @@ class HomeController extends Controller {
     protected $page = "Home";
 
     public function index() {
-        $this->renderPartial('auth/index');
+        $this->addCSS('default.css');
+
+        $this->renderPartial('index');
     }
 }

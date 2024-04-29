@@ -22,6 +22,9 @@ class Controller {
     protected function renderPartial($view, $data = []) {
         $this->includeDefaultInData($data);
 
+        $data['data'] = $data;
+        $data['view'] = $view;
+
         ob_start();
         include "Views/$view.php";
         $content = ob_get_clean();
@@ -43,5 +46,12 @@ class Controller {
 
     protected function addJS($js) {
         $this->cdns['js'][] = "js/$js";
+    }
+
+    public function renderChild($view, $data = []) {
+        $this->includeDefaultInData($data);
+        extract($data);
+
+        include "Views/$view.php";
     }
 }

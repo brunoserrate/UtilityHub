@@ -1,8 +1,3 @@
-<?php
-
-use App\Utils\Utils;
-?>
-
 <script>
     function validateLoginForm() {
         var email = document.getElementById("email").value;
@@ -25,7 +20,7 @@ use App\Utils\Utils;
             <p>Para acessar o painel de controle, faça login</br>
             Se você não tem uma conta, <a class="a_link" href="/register">clique aqui</a> para criar uma.</p>
 
-            <form method="post" action="<?= Utils::mountPath(['..', '..', 'api', 'users', 'login']) ?>" onsubmit="return validateLoginForm()">
+            <form method="post" action="/login" onsubmit="return validateLoginForm()">
                 <div class="row mb-3">
                     <div class="col">
                         <input class="form-control" type="text" placeholder="E-mail" name="email" id="email" required>
@@ -42,6 +37,12 @@ use App\Utils\Utils;
                     </div>
                 </div>
             </form>
+
+            <?php if(isset($error)): ?>
+                <div class="alert alert-danger mt-3" role="alert">
+                    <?php echo $error; ?>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 </div>

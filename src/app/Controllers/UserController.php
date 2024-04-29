@@ -25,17 +25,27 @@ class UserController extends Controller {
 
     public function login() {
 
-        $user = $this->userRepository->searchUser($_POST);
+        $params = $_POST;
 
-        if (!$user) {
-            $this->renderPartial('auth/login', ['error' => 'Usuário não encontrado']);
+        $result = $this->userRepository->searchUser($params);
+
+        if(!$result['success']) {
+            $this->renderPartial('auth/login', ['error' => $result['message']]);
             return;
         }
 
-        if (!password_verify($password, $user->password)) {
-            $this->renderPartial('auth/login', ['error' => 'Senha incorreta']);
+        $user = $result['data'];
+
+        $result = $this->userRepository->verifyPassword($params, $user);
+
+        if(!$result['success']) {
+            $this->renderPartial('auth/login', ['error' => $result['message']]);
             return;
         }
+
+        $this->userRepository->login($user);
+
+        unset($user['password']);
 
         $_SESSION['user'] = $user;
         header('Location: /');

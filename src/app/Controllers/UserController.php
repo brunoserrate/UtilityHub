@@ -50,4 +50,18 @@ class UserController extends Controller {
         $_SESSION['user'] = $user;
         header('Location: /');
     }
+
+    public function store() {
+
+        $params = $_POST;
+
+        $result = $this->userRepository->store($params);
+
+        if(!$result['success']) {
+            $this->renderPartial('auth/register', ['error' => $result['message']]);
+            return;
+        }
+
+        $this->renderPartial('auth/login', ['success' => 'Usuário cadastrado com sucesso!']);
+    }
 }

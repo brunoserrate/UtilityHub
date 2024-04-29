@@ -26,7 +26,7 @@ class UserRepository extends BaseRepository {
             ]
         ]);
 
-        if($user['success']) {
+        if($user['success'] && count($user['data']) == 0 ) {
             return $this->sendError('Usuário não encontrado', [], 404);
         }
 
@@ -59,6 +59,42 @@ class UserRepository extends BaseRepository {
         }
 
         return $this->sendSuccess('Token criado', $result['data']);
+    }
+
+    public function store($input) {
+        if(!isset($input['nome']) || !isset($input['email']) || !isset($input['password'])) {
+            return $this->sendError('Nome, email e senha são obrigatórios', [], 400);
+        }
+
+        if($input['password'] != $input['confirm_password']) {
+            return $this->sendError('Senhas não coincidem', [], 400);
+        }
+
+        $user = $this->userModel->get(0, 1, 'id', 'ASC', ['*'], [
+            [
+                'key' => 'email',
+                'operator' => '=',
+                'value' => $input['email']
+            ]
+        ]);
+
+        if($user['success'] && count($user['data']) > 0) {
+            return $this->sendError('Usuário já cadastrado', [], 400);
+        }
+
+        $input['password'] = password_hash($input['password'], PASSWORD_DEFAULT);
+
+        $result = $this->userModel->insert([
+            'name' => $input['nome'],
+            'email' => $input['email'],
+            'password' => $input['password']
+        ]);
+
+        if(!$result['success']) {
+            return $this->sendError('Erro ao cadastrar usuário: ' . $result['message'], [], 400);
+        }
+
+        return $this->sendSuccess('Usuário cadastrado', []);
     }
 
 }

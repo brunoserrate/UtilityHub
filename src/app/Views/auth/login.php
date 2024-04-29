@@ -43,6 +43,12 @@
                     <?php echo $error; ?>
                 </div>
             <?php endif; ?>
+
+            <?php if(isset($success)): ?>
+                <div class="alert alert-success mt-3" role="alert">
+                    <?php echo $success; ?>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 </div>

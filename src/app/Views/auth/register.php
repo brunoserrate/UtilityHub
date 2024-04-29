@@ -1,28 +1,3 @@
-<?php
-
-use App\Utils\Utils;
-?>
-
-<script>
-    function validateRegisterForm() {
-        var nome = document.getElementById("name").value;
-        var email = document.getElementById("email").value;
-        var password = document.getElementById("password").value;
-        var confirm_password = document.getElementById("confirm_password").value;
-
-        if (nome == "" || email == "" || password == "" || confirm_password == "") {
-            alert("Preencha todos os campos!");
-            return false;
-        }
-
-        if (password != confirm_password) {
-            alert("As senhas não coincidem!");
-            return false;
-        }
-
-        return true;
-    }
-</script>
 <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
     <div class="card">
         <div class="card-header bg-primary text-white text-center">
@@ -31,7 +6,7 @@ use App\Utils\Utils;
         <div class="card-body">
             <p>Parar criar uma nova conta, preencha todos os campos a seguir</p>
 
-            <form method="post" action="<?= Utils::mountPath(['..', '..', 'api', 'users', 'login']) ?>" onsubmit="return validateLoginForm()">
+            <form method="post" action="/register" onsubmit="return validateLoginForm()">
                 <div class="row mb-3">
                     <div class="col">
                         <input class="form-control" type="text" placeholder="Nome completo" name="nome" id="nome" required>
@@ -53,11 +28,42 @@ use App\Utils\Utils;
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col">
+                    <div class="col text-start">
+                        <a href="/login" class="btn btn-primary">Já possuo conta</a>
+                    </div>
+                    <div class="col text-end">
                         <button type="submit" class="btn btn-primary">Registrar</button>
                     </div>
+                    <!-- posicionar o botão de login ao lado direito -->
                 </div>
             </form>
+
+            <?php if (isset($error)) : ?>
+                <div class="alert alert-danger mt-3" role="alert">
+                    <?= $error ?>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 </div>
+
+<script>
+    function validateRegisterForm() {
+        var nome = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+        var confirm_password = document.getElementById("confirm_password").value;
+
+        if (nome == "" || email == "" || password == "" || confirm_password == "") {
+            alert("Preencha todos os campos!");
+            return false;
+        }
+
+        if (password != confirm_password) {
+            alert("As senhas não coincidem!");
+            return false;
+        }
+
+        return true;
+    }
+</script>

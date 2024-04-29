@@ -11,7 +11,7 @@ class UserController extends Controller {
 
     private $userRepository;
 
-    protected function __construct() {
+    public function __construct() {
         $this->userRepository = new UserRepository();
     }
 

@@ -1,28 +1,51 @@
-<?php
-session_start();
-require_once join(DIRECTORY_SEPARATOR, ['..', '..', 'autoloader.php']);
+<div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <div class="card">
+        <div class="card-header bg-primary text-white text-center">
+            <h1>Registrar</h1>
+        </div>
+        <div class="card-body">
+            <p>Parar criar uma nova conta, preencha todos os campos a seguir</p>
 
-use App\Utils\Utils;
+            <form method="post" action="/register" onsubmit="return validateLoginForm()">
+                <div class="row mb-3">
+                    <div class="col">
+                        <input class="form-control" type="text" placeholder="Nome completo" name="nome" id="nome" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <input class="form-control" type="text" placeholder="E-mail" name="email" id="email" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <input class="form-control" type="password" placeholder="Senha" name="password" id="password" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <input class="form-control" type="password" placeholder="Confirmar senha" name="confirm_password" id="confirm_password" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col text-start">
+                        <a href="/login" class="btn btn-primary">Já possuo conta</a>
+                    </div>
+                    <div class="col text-end">
+                        <button type="submit" class="btn btn-primary">Registrar</button>
+                    </div>
+                    <!-- posicionar o botão de login ao lado direito -->
+                </div>
+            </form>
 
-$_SESSION["requested_via_browser"] = true;
-?>
-
-<!-- Registrar -->
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Utility Hub API - Registrar</title>
-
-    <!-- Import css -->
-    <link rel="stylesheet" href="../../public/css/default.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@100;300;600&display=swap" rel="stylesheet">
-</head>
+            <?php if (isset($error)) : ?>
+                <div class="alert alert-danger mt-3" role="alert">
+                    <?= $error ?>
+                </div>
+            <?php endif; ?>
+        </div>
+    </div>
+</div>
 
 <script>
     function validateRegisterForm() {
@@ -44,21 +67,3 @@ $_SESSION["requested_via_browser"] = true;
         return true;
     }
 </script>
-
-<body>
-    <div class="container">
-        <h1 class="titulos">Registrar</h1>
-        <p>Parar criar uma nova conta, preencha todos os campos a seguir</p>
-        <br>
-
-        <form method="post" action="<?= Utils::mountPath(['..', '..', 'api', 'users', 'register']) ?>" onsubmit="return validateLoginForm()">
-            <input class="input" type="text" placeholder="Nome completo" name="name" required>
-            <input class="input" type="text" placeholder="E-mail" name="email" required>
-            <input class="input" type="password" placeholder="Senha" name="password" required>
-            <input class="input" type="password" placeholder="Confirmar senha" name="confirm_password" required>
-            <button type="submit" class="btn">Registrar</button>
-        </form>
-    </div>
-</body>
-
-</html>

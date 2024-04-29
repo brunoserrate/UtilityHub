@@ -1,4 +1,18 @@
 RewriteEngine On
+
+# Redirecionar para a pasta public
+RewriteCond %{REQUEST_URI} !^/public/
+RewriteRule ^(.*)$ /public/$1 [L]
+
+# Remover a extensão .php
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+# Permitir acesso direto a arquivos estáticos
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+# Redirecionar todas as solicitações para o index.php dentro de public
+RewriteCond %{REQUEST_URI} !^/public/index.php
+RewriteRule ^(.*)$ /public/index.php [L]

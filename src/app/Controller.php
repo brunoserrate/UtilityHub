@@ -5,7 +5,7 @@ namespace App;
 class Controller {
     protected $template = "clean_default";
     protected $cdns = [
-        'css' => [],
+        'css' => ['css/custom.css'],
         'js' => []
     ];
 
@@ -21,6 +21,9 @@ class Controller {
 
     protected function renderPartial($view, $data = []) {
         $this->includeDefaultInData($data);
+
+        $data['data'] = $data;
+        $data['view'] = $view;
 
         ob_start();
         include "Views/$view.php";
@@ -43,5 +46,12 @@ class Controller {
 
     protected function addJS($js) {
         $this->cdns['js'][] = "js/$js";
+    }
+
+    public function renderChild($view, $data = []) {
+        $this->includeDefaultInData($data);
+        extract($data);
+
+        include "Views/$view.php";
     }
 }

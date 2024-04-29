@@ -1,16 +1,44 @@
-@import "../node_modules/bootstrap/scss/bootstrap";
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
-
-
 $white: #ffffff;
 
 $theme-colors: (
-    "light":      #e5e2d4,
-    "dark":       #1f0f4a,
-    "primary":    #c44a40,
-    "secondary":  #6d74f9,
-    "info":       #4038e2,
-    "success":    #599f0d,
-    "warning":    #ffbd61,
-    "danger":     #ef0664,
+    "light":      #ecfbea,
+    "dark":       #090c0e,
+    "primary":    #03525a,
+    "secondary":  #2a7787,
+    "info":       #50a9ba,
+    "accent1":    #193845,
+    "accent2":    #447082,
+    "accent3":    #9fa9ae,
+    "success":    #04a34c,
+    "warning":    #eac704,
+    "danger":     #f30129,
 );
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+@import url('https://fonts.googleapis.com/css?family=Akatab:700|Akatab:400');
+
+body {
+    font-family: 'Akatab';
+    font-weight: 400;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Akatab';
+    font-weight: 700;
+}
+
+html {font-size: 100%;} /* 16px */
+
+h1 {font-size: 4.210rem; /* 67.36px */}
+
+h2 {font-size: 3.158rem; /* 50.56px */}
+
+h3 {font-size: 2.369rem; /* 37.92px */}
+
+h4 {font-size: 1.777rem; /* 28.48px */}
+
+h5 {font-size: 1.333rem; /* 21.28px */}
+
+small {font-size: 0.750rem; /* 12px */}

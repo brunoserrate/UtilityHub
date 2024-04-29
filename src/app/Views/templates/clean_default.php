@@ -3,6 +3,10 @@ session_start();
 
 $_SESSION["requested_via_browser"] = true;
 
+use App\Controller;
+
+$controller = new Controller();
+
 ?>
 
 <!DOCTYPE html>
@@ -20,8 +24,8 @@ $_SESSION["requested_via_browser"] = true;
 
 </head>
 
-<body>
-    <?= $content ?>
+<body class="bg-light">
+    <?php $controller->renderChild($view, $data); ?>
 
     <?php foreach ($cdns['js'] as $js) : ?>
         <script src="<?= $js ?>"></script>

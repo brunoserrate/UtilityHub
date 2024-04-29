@@ -29,18 +29,4 @@ class TokenModel extends AbastractModel
         $stmt = $this->db->prepare($query);
         $stmt->execute();
     }
-
-    public function generateToken($userId) {
-        $token = bin2hex(random_bytes(64));
-
-        $this->insert(
-            [
-                'user_id' => $userId,
-                'token' => $token,
-                'expires_at' => date('Y-m-d H:i:s', strtotime('+2 hours'))
-            ]
-        );
-
-        return $token;
-    }
 }

@@ -16,14 +16,17 @@ class UserController extends Controller {
     }
 
     public function index() {
+        $this->template = "clean_default";
         $this->renderPartial('auth/login');
     }
 
     public function register() {
+        $this->template = "clean_default";
         $this->renderPartial('auth/register');
     }
 
     public function login() {
+        $this->template = "clean_default";
 
         $params = $_POST;
 
@@ -48,10 +51,11 @@ class UserController extends Controller {
         unset($user['password']);
 
         $_SESSION['user'] = $user;
-        header('Location: /');
+        header('Location: /app');
     }
 
     public function store() {
+        $this->template = "clean_default";
 
         $params = $_POST;
 

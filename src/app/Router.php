@@ -23,6 +23,15 @@ class Router
         $uri = strtok($_SERVER['REQUEST_URI'], '?');
         $method =  $_SERVER['REQUEST_METHOD'];
 
+        $fileTypes = ['js', 'css', 'jpg', 'png', 'gif'];
+
+        $fileType = pathinfo($uri, PATHINFO_EXTENSION);
+
+        if (in_array($fileType, $fileTypes)) {
+            readfile($_SERVER['DOCUMENT_ROOT'] . $uri);
+            return;
+        }
+
         if (array_key_exists($uri, $this->routes[$method])) {
             $controller = $this->routes[$method][$uri]['controller'];
             $action = $this->routes[$method][$uri]['action'];

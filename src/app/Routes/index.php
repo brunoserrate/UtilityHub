@@ -15,4 +15,7 @@ $router->post('/login', UserController::class, 'login');
 $router->get('/register', UserController::class, 'register');
 $router->post('/register', UserController::class, 'store');
 
+// App
+$router->get('/app', HomeController::class, 'app');
+
 $router->dispatch();

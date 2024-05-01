@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Controllers\HomeController;
+
 class Router
 {
     protected $routes = [];
@@ -39,7 +41,9 @@ class Router
             $controller = new $controller();
             $controller->$action();
         } else {
-            throw new \Exception("No route found for URI: $uri");
+            $controller = new HomeController();
+            $controller->notFound();
+            return;
         }
     }
 }

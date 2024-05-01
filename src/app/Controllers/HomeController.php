@@ -17,4 +17,10 @@ class HomeController extends Controller {
         $this->template = "app_default";
         $this->renderPartial('app/index');
     }
+
+    public function notFound() {
+        $this->template = "clean_default";
+        $this->page = "404";
+        $this->renderPartial('404');
+    }
 }

@@ -1,7 +1,3 @@
-<?php
-use App\Utils\Utils;
-?>
-
 <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
     <div class="card">
         <div class="card-header">
@@ -20,9 +16,11 @@ use App\Utils\Utils;
             <h2>Uso</h2>
             <p>Para começar a usar a Utility Hub, siga estas etapas simples:</p>
             <ol>
-                <li><a href="/login">Registre-se</a> para obter uma chave de API exclusiva.</li>
-                <li>Faça chamadas à API usando sua chave de API para acessar os serviços disponíveis.</li>
-                <li>Leia nossa <a href="https://exemplo.com/documentacao">documentação</a> para obter detalhes sobre como usar cada serviço.</li>
+                <li><a href="/login">Faça o login</a> para acessar a aplicação.</li>
+                <li><a href="/register">Registre-se</a> se você ainda não tiver uma conta.</li>
+                <li>Explore os serviços disponíveis e escolha o que melhor atende às suas necessidades.</li>
+                <li>Use o formulário fornecido para inserir os dados necessários para o serviço selecionado.</li>
+                <li>Visualize os resultados e use as informações geradas conforme necessário.</li>
             </ol>
         </div>
     </div>

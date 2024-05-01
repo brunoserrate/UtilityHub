@@ -52,7 +52,10 @@ class UserController extends Controller {
 
         unset($user['password']);
 
+        session_start();
+
         $_SESSION['user'] = $user;
+
         header('Location: /app');
     }
 

@@ -67,6 +67,11 @@ $controller = new Controller();
                             <i class="fs-5 bi-lock"></i><span class="ms-1 d-none d-sm-inline">Gerador de Senhas</span>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="/app/unit-converter" class="nav-link px-sm-0 px-2">
+                            <i class="fs-5 bi-arrow-repeat"></i><span class="ms-1 d-none d-sm-inline">Conversor de Unidades</span>
+                        </a>
+                    </li>
                     <!-- TODO: Add for loop to generate menu items -->
                     <!-- <li>
                         <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-sm-0 px-2">

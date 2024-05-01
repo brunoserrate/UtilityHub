@@ -23,6 +23,7 @@ class UnitConverterController extends Controller {
 
     public function index() {
         $this->template = "app_default";
+        $this->page = __("Unit Converter");
         $this->renderPartial('app/unit-converter', [
             'unitSelectOptions' => $this->unitSelectOptions
         ]);
@@ -30,6 +31,7 @@ class UnitConverterController extends Controller {
 
     public function convert() {
         $this->template = "app_default";
+        $this->page = __("Unit Converter");
         $params = $_POST;
 
         $result = $this->unitConverterRepository->convert($params);

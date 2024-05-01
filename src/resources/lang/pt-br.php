@@ -95,4 +95,6 @@ return [
     'Convert' => 'Converter',
 
     'Unit Converter' => 'Conversor de Unidades',
+    'Password Generator' => 'Gerador de Senhas',
+    'Use the form below to generate passwords.' => 'Use o formulário abaixo para gerar senhas.',
 ];

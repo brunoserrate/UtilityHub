@@ -17,11 +17,13 @@ class PasswordGeneratorController extends Controller {
 
     public function index() {
         $this->template = "app_default";
+        $this->page = __("Password Generator");
         $this->renderPartial('app/password-generator');
     }
 
     public function generate() {
         $this->template = "app_default";
+        $this->page = __("Password Generator");
         $params = $_POST;
 
         $result = $this->passwordGeneratorRepository->generate($params);

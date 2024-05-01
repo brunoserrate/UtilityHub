@@ -17,11 +17,13 @@ class RandomNumberController extends Controller {
 
     public function index() {
         $this->template = "app_default";
+        $this->page = __("Random Number Generator");
         $this->renderPartial('app/random-number-generator');
     }
 
     public function generate() {
         $this->template = "app_default";
+        $this->page = __("Random Number Generator");
         $params = $_POST;
 
         $result = $this->randomNumberRepository->generate($params);

@@ -3,6 +3,7 @@
 use App\Controllers\HomeController;
 use App\Controllers\UserController;
 use App\Controllers\PasswordGeneratorController;
+use App\Controllers\UnitConverterController;
 
 use App\Router;
 
@@ -23,5 +24,9 @@ $router->get('/app', HomeController::class, 'app');
 // Password Generator
 $router->get('/app/password-generator', PasswordGeneratorController::class, 'index');
 $router->post('/app/password-generator', PasswordGeneratorController::class, 'generate');
+
+// Unit Converter
+$router->get('/app/unit-converter', UnitConverterController::class, 'index');
+$router->post('/app/unit-converter', UnitConverterController::class, 'convert');
 
 $router->dispatch();

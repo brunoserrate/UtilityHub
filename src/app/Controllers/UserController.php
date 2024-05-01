@@ -17,11 +17,13 @@ class UserController extends Controller {
 
     public function index() {
         $this->template = "clean_default";
+        $this->page = "Login";
         $this->renderPartial('auth/login');
     }
 
     public function register() {
         $this->template = "clean_default";
+        $this->page = "Register";
         $this->renderPartial('auth/register');
     }
 

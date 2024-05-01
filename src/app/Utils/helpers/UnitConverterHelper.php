@@ -9,16 +9,6 @@ use App\Utils\Helpers\UnitConverter\TimeConverter;
 use App\Utils\Helpers\UnitConverter\VolumeConverter;
 use App\Utils\Helpers\UnitConverter\WeightConverter;
 
-/*
-  Needed to work with replit.com
-*/
-require_once __DIR__ . DIRECTORY_SEPARATOR . 'UnitConverter' . DIRECTORY_SEPARATOR . 'AreaConverter.php';
-require_once __DIR__ . DIRECTORY_SEPARATOR . 'UnitConverter' . DIRECTORY_SEPARATOR . 'LengthConverter.php';
-require_once __DIR__ . DIRECTORY_SEPARATOR . 'UnitConverter' . DIRECTORY_SEPARATOR . 'TemperatureConverter.php';
-require_once __DIR__ . DIRECTORY_SEPARATOR . 'UnitConverter' . DIRECTORY_SEPARATOR . 'TimeConverter.php';
-require_once __DIR__ . DIRECTORY_SEPARATOR . 'UnitConverter' . DIRECTORY_SEPARATOR . 'VolumeConverter.php';
-require_once __DIR__ . DIRECTORY_SEPARATOR . 'UnitConverter' . DIRECTORY_SEPARATOR . 'WeightConverter.php';
-
 class UnitConverterHelper {
 
     public static function convert($from, $to, $value, $type) {

@@ -3,78 +3,45 @@
 /*
     Data Structure:
     [
-        'purpose' => [
-            'context' => [
-                'key/code' => 'message',
-            ]
-        ],
+        'key/code' => 'message',
     ]
 
     Example:
     [
-        'error' => [
-            'users' => [
-                'users_empty' => 'Please fill all the fields.',
-                'users_not_found' => 'User not found.',
-                'users_not_activated' => 'User not activated.',
-            ],
-        ],
+        'error_method_not_allowed' => 'Method not allowed.',
+        'error_fail_retrieving_data' => 'Fail retrieving data.',
+        'error_parameters_empty' => 'Parameters cannot be empty.',
     ]
-
-    Explenation:
-     - purpose: The purpose of the message, for example: error, success, warning, general, etc.
-        - context: The context of the message, for example: users, posts, comments, etc.
-            - key/code: The key or code of the message, for example: users_empty, users_not_found, users_not_activated, etc.
-                - message: The message itself, for example: Please fill all the fields, User not found, User not activated, etc.
 */
+
 return [
-    'error' => [
-        'general' => [
-            'method_not_allowed' => 'Método não permitido.',
-            'fail_retrieving_data' => 'Falha ao recuperar dados.',
-            'parameters_empty' => 'Parâmetros não podem ser vazios.',
-        ],
-        'users' => [
-            'users_empty' => 'Por favor, preencha todos os campos.',
-            'users_not_found' => 'Usuário não encontrado.',
-            'users_not_activated' => 'Usuário não ativado.',
-            'users_password_incorrect' => 'Senha incorreta.',
-            'users_token_not_generated' => 'Token não gerado.',
-            'users_passwords_dont_match' => 'As senhas não coincidem.',
-            'users_invalid_email' => 'E-mail inválido.',
-        ],
-        'token' => [
-            'token_not_found' => 'Token não encontrado.',
-        ],
-        'unit_converter' => [
-            'converter_not_found' => 'Conversor não encontrado.',
-            'not_implemented_yet' => 'Ainda não implementado.',
-        ]
-    ],
-    'success' => [
-        'users' => [
-            'users_logged_in' => 'Usuário logado.',
-            'user_registered' => 'Usuário registrado.',
-            'user_updated' => 'Usuário atualizado.',
-            'user_desactivated' => 'Usuário desativado.',
-        ],
-        'general' => [
-            'data_retrieved' => 'Dados retornados com sucesso.',
-        ]
-    ],
-    'return_keys' => [
-        'success' => 'sucesso',
-        'status' => 'status',
-        'message' => 'mensagem',
-        'data' => 'dados',
-        'response_time' => 'tempo_de_resposta',
-        'random_numbers' => [
-            'numbers' => 'numeros',
-            'statistic' => 'estatistica',
-            'min_output' => 'saida_minima',
-            'max_output' => 'saida_maxima',
-            'average_output' => 'media',
-            'data' => 'dados',
-        ]
-    ]
+    'error_method_not_allowed' => 'Método não permitido.',
+    'error_fail_retrieving_data' => 'Falha ao recuperar dados.',
+    'error_parameters_empty' => 'Parâmetros não podem ser vazios.',
+    'error_users_empty' => 'Por favor, preencha todos os campos.',
+    'error_users_not_found' => 'Usuário não encontrado.',
+    'error_users_not_activated' => 'Usuário não ativado.',
+    'error_users_password_incorrect' => 'Senha incorreta.',
+    'error_users_token_not_generated' => 'Token não gerado.',
+    'error_users_passwords_dont_match' => 'As senhas não coincidem.',
+    'error_users_invalid_email' => 'E-mail inválido.',
+    'error_token_not_found' => 'Token não encontrado.',
+    'error_converter_not_found' => 'Conversor não encontrado.',
+    'error_not_implemented_yet' => 'Ainda não implementado.',
+    'success_users_logged_in' => 'Usuário logado.',
+    'success_user_registered' => 'Usuário registrado.',
+    'success_user_updated' => 'Usuário atualizado.',
+    'success_user_desactivated' => 'Usuário desativado.',
+    'success_data_retrieved' => 'Dados retornados com sucesso.',
+    'return_keys_success' => 'sucesso',
+    'return_keys_status' => 'status',
+    'return_keys_message' => 'mensagem',
+    'return_keys_data' => 'dados',
+    'return_keys_response_time' => 'tempo_de_resposta',
+    'return_keys_random_numbers_numbers' => 'numeros',
+    'return_keys_random_numbers_statistic' => 'estatistica',
+    'return_keys_random_numbers_min_output' => 'saida_minima',
+    'return_keys_random_numbers_max_output' => 'saida_maxima',
+    'return_keys_random_numbers_average_output' => 'media',
+    'return_keys_random_numbers_data' => 'dados',
 ];

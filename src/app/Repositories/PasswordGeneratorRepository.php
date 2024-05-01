@@ -21,9 +21,9 @@ class PasswordGeneratorRepository extends BaseRepository {
         try {
             $passwords = $passwordGeneratorHelper->generatePassword($length, $samples, $useLowerCase, $useUpperCase, $useNumbers, $useSymbols, $useSimilarCharacters, $uniqueCharacters);
 
-            return $this->sendSuccess('Password generated successfully', $passwords);
+            return $this->sendSuccess(__('Password generated successfully'), $passwords);
         } catch (\Throwable $th) {
-            return $this->sendError('Error generating password');
+            return $this->sendError(__('Error generating password'));
         }
 
 

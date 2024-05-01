@@ -1,12 +1,12 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col">
-            <h1>Unit Converter</h1>
+            <h1><?= __("Unit Converter") ?></h1>
         </div>
     </div>
     <div class="row">
         <div class="col">
-            <p>Convert between different units using the form below.</p>
+            <p><?= __("Convert between different units using the form below.") ?></p>
         </div>
     </div>
     <hr>
@@ -17,7 +17,7 @@
                     <div class="col-3">
                         <label for="type" class="form-label">Tipo</label>
                         <select class="form-select bg-accent3-300" id="type" name="type" required style="pointer-events:none;">
-                            <option value="temperature" selected>Temperatura</option>
+                            <option value="temperature" selected><?= __("Temperature") ?></option>
                         </select>
                     </div>
                 </div>
@@ -26,7 +26,7 @@
                         <label for="from" class="form-label">De</label>
                         <select class="form-select" id="from" name="from" required>
                             <?php foreach ($unitSelectOptions as $unit => $unitLabel ) : ?>
-                                <option value="<?= $unit ?>"><?= $unitLabel ?></option>
+                                <option value="<?= $unit ?>"><?= __("$unitLabel"); ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
@@ -34,7 +34,7 @@
                         <label for="to" class="form-label">Para</label>
                         <select class="form-select" id="to" name="to" required>
                         <?php foreach ($unitSelectOptions as $unit => $unitLabel ) : ?>
-                                <option value="<?= $unit ?>"><?= $unitLabel ?></option>
+                                <option value="<?= $unit ?>"><?= __("$unitLabel"); ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
@@ -45,7 +45,7 @@
                         <input type="number" class="form-control" id="value" name="value" required>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Convert</button>
+                <button type="submit" class="btn btn-primary"><?= __("Convert") ?></button>
             </form>
         </div>
     </div>

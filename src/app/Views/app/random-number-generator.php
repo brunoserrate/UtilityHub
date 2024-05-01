@@ -1,12 +1,12 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col">
-            <h1>Random Number Generator</h1>
+            <h1><?= __("Random Number Generator") ?></h1>
         </div>
     </div>
     <div class="row">
         <div class="col">
-            <p>Use the form below to generate random numbers.</p>
+            <p><?= __("Use the form below to generate random numbers.")?></p>
         </div>
     </div>
     <hr>

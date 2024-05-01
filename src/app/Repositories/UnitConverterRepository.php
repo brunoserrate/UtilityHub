@@ -20,23 +20,23 @@ class UnitConverterRepository extends BaseRepository {
         $type = $params['type'];
 
         if (!UnitConverterHelper::validadeType($type)) {
-            return $this->sendError('invalid_type', $type);
+            return $this->sendError(__('invalid_type'), $type);
         }
 
         try {
             $result = UnitConverterHelper::convert($from, $to, $value, $type);
 
             if(!$result['success']) {
-                return $this->sendError('converter_not_found', [ 'type' => $type]);
+                return $this->sendError(__('converter_not_found'), [ 'type' => $type]);
             }
 
-            return $this->sendSuccess('conversion_success', [
+            return $this->sendSuccess(__('conversion_success'), [
                 'value' => $result['value'],
                 'from' => $from,
                 'to' => $to
             ]);
         } catch (\Throwable $th) {
-            return $this->sendError('conversion_error', ['error'=>$th->getMessage()]);
+            return $this->sendError(__('conversion_error'), ['error'=>$th->getMessage()]);
         }
     }
 
@@ -45,10 +45,10 @@ class UnitConverterRepository extends BaseRepository {
 
         foreach ($requiredFields as $field) {
             if (!isset($params[$field])) {
-                return $this->sendError('missing_field', ['field'=>$field]);
+                return $this->sendError(__('missing_field'), ['field'=>$field]);
             }
         }
 
-        return $this->sendSuccess('fields_validated', []);
+        return $this->sendSuccess(__('fields_validated'), []);
     }
 }

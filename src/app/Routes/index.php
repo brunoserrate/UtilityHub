@@ -18,4 +18,7 @@ $router->post('/register', UserController::class, 'store');
 // App
 $router->get('/app', HomeController::class, 'app');
 
+// Password Generator
+$router->get('/app/password-generator', HomeController::class, 'passwordGenerator');
+
 $router->dispatch();

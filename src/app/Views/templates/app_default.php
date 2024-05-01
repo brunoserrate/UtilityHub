@@ -62,6 +62,11 @@ $controller = new Controller();
                             <i class="fs-5 bi-house"></i><span class="ms-1 d-none d-sm-inline">Dashboard</span>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="/app/password-generator" class="nav-link px-sm-0 px-2">
+                            <i class="fs-5 bi-lock"></i><span class="ms-1 d-none d-sm-inline">Gerador de Senhas</span>
+                        </a>
+                    </li>
                     <!-- TODO: Add for loop to generate menu items -->
                     <!-- <li>
                         <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-sm-0 px-2">

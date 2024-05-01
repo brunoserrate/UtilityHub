@@ -14,7 +14,7 @@ class TokenRepository extends BaseRepository {
 
     public function generateToken($input) {
         if(!isset($input['user_id'])) {
-            return $this->sendError('Usuário é obrigatórios', [], 400);
+            return $this->sendError(__('Usuário é obrigatórios'), [], 400);
         }
 
         $token = bin2hex(random_bytes(64));
@@ -28,15 +28,15 @@ class TokenRepository extends BaseRepository {
         ]);
 
         if($token['success']) {
-            return $this->sendError('Erro ao criar token', [], 400);
+            return $this->sendError(__('Erro ao criar token'), [], 400);
         }
 
-        return $this->sendSuccess('Token criado', $token['data']);
+        return $this->sendSuccess(__('Token criado'), $token['data']);
     }
 
     public function verifyToken($input) {
         if(!isset($input['token']) || !isset($input['user_id'])) {
-            return $this->sendError('Token e usuário são obrigatórios', [], 400);
+            return $this->sendError(__('Token e usuário são obrigatórios'), [], 400);
         }
 
         $token = $this->tokenModel->get(0, 1, 'id', 'ASC', ['*'], [
@@ -58,15 +58,15 @@ class TokenRepository extends BaseRepository {
         ]);
 
         if($token['success']) {
-            return $this->sendError('Token inválido', [], 400);
+            return $this->sendError(__('Token inválido'), [], 400);
         }
 
-        return $this->sendSuccess('Token válido', $token['data'][0]);
+        return $this->sendSuccess(__('Token válido'), $token['data'][0]);
     }
 
     public function deleteToken($input) {
         if(!isset($input['token'])) {
-            return $this->sendError('Token é obrigatório', [], 400);
+            return $this->sendError(__('Token é obrigatório'), [], 400);
         }
 
         $token = $this->tokenModel->delete([
@@ -78,10 +78,10 @@ class TokenRepository extends BaseRepository {
         ]);
 
         if($token['success']) {
-            return $this->sendError('Erro ao deletar token', [], 400);
+            return $this->sendError(__('Erro ao deletar token'), [], 400);
         }
 
-        return $this->sendSuccess('Token deletado', []);
+        return $this->sendSuccess(__('Token deletado'), []);
     }
 
 }

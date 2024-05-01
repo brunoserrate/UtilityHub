@@ -20,10 +20,10 @@ class RandomNumberRepository extends BaseRepository {
                 'statistic' => RandomNumberHelper::generateStatistic($values),
             ];
 
-            return $this->sendSuccess('Random number generated', $data);
+            return $this->sendSuccess(__('Random number generated'), $data);
 
         } catch (\Throwable $th) {
-            return $this->sendError('Failed to generate random number', ['error' => $th->getMessage()]);
+            return $this->sendError(__('Failed to generate random number'), ['error' => $th->getMessage()]);
         }
     }
 

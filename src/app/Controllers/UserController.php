@@ -23,7 +23,7 @@ class UserController extends Controller {
 
     public function register() {
         $this->template = "clean_default";
-        $this->page = "Register";
+        $this->page = __("Register");
         $this->renderPartial('auth/register');
     }
 
@@ -71,6 +71,6 @@ class UserController extends Controller {
             return;
         }
 
-        $this->renderPartial('auth/login', ['success' => 'Usuário cadastrado com sucesso!']);
+        $this->renderPartial('auth/login', ['success' => __('Usuário cadastrado com sucesso!')]);
     }
 }

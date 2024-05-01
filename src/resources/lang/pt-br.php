@@ -44,4 +44,14 @@ return [
     'return_keys_random_numbers_max_output' => 'saida_maxima',
     'return_keys_random_numbers_average_output' => 'media',
     'return_keys_random_numbers_data' => 'dados',
+
+    'Register' => 'Registrar',
+
+    'invalid_type' => 'Tipo inválido',
+    'conversion_success' => 'Conversão realizada com sucesso',
+    'conversion_error' => 'Erro na conversão',
+    'missing_field' => 'Campo faltando',
+    'fields_validated' => 'Campos validados',
+    'converter_not_found' => 'Conversor não encontrado',
+
 ];

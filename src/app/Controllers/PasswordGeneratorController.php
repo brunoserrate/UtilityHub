@@ -17,7 +17,21 @@ class PasswordGeneratorController extends Controller {
 
     public function index() {
         $this->template = "app_default";
-        $this->renderPartial('app/index');
+        $this->renderPartial('app/password-generator');
+    }
+
+    public function generate() {
+        $this->template = "app_default";
+        $params = $_POST;
+
+        $result = $this->passwordGeneratorRepository->generate($params);
+
+        if(!$result['success']) {
+            $this->renderPartial('app/password-generator', ['error' => $result['message']]);
+            return;
+        }
+
+        $this->renderPartial('app/password-generator', ['passwords' => $result['data'] , 'success' => $result['message'] ]);
     }
 
 }

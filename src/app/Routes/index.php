@@ -4,6 +4,7 @@ use App\Controllers\HomeController;
 use App\Controllers\UserController;
 use App\Controllers\PasswordGeneratorController;
 use App\Controllers\UnitConverterController;
+use App\Controllers\RandomNumberController;
 
 use App\Router;
 
@@ -28,5 +29,9 @@ $router->post('/app/password-generator', PasswordGeneratorController::class, 'ge
 // Unit Converter
 $router->get('/app/unit-converter', UnitConverterController::class, 'index');
 $router->post('/app/unit-converter', UnitConverterController::class, 'convert');
+
+// Random Number Generator
+$router->get('/app/random-number-generator', RandomNumberController::class, 'index');
+$router->post('/app/random-number-generator', RandomNumberController::class, 'generate');
 
 $router->dispatch();

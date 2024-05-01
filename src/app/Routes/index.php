@@ -2,6 +2,8 @@
 
 use App\Controllers\HomeController;
 use App\Controllers\UserController;
+use App\Controllers\PasswordGeneratorController;
+
 use App\Router;
 
 $router = new Router();
@@ -17,5 +19,9 @@ $router->post('/register', UserController::class, 'store');
 
 // App
 $router->get('/app', HomeController::class, 'app');
+
+// Password Generator
+$router->get('/app/password-generator', PasswordGeneratorController::class, 'index');
+$router->post('/app/password-generator', PasswordGeneratorController::class, 'generate');
 
 $router->dispatch();

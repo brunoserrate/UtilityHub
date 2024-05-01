@@ -5,7 +5,7 @@ namespace App;
 class Controller {
     protected $template = "clean_default";
     protected $cdns = [
-        'css' => ['css/custom.css'],
+        'css' => ['/css/custom.css'],
         'js' => ['../node_modules/jquery/dist/jquery.js', '../node_modules/bootstrap/dist/js/bootstrap.bundle.js']
     ];
 

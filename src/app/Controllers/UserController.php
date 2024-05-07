@@ -73,4 +73,10 @@ class UserController extends Controller {
 
         $this->renderPartial('auth/login', ['success' => __('Usuário cadastrado com sucesso!')]);
     }
+
+    public function logout() {
+        session_start();
+        session_destroy();
+        header('Location: /login');
+    }
 }

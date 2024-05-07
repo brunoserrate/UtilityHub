@@ -18,6 +18,7 @@ $router->get('/login', UserController::class, 'index');
 $router->post('/login', UserController::class, 'login');
 $router->get('/register', UserController::class, 'register');
 $router->post('/register', UserController::class, 'store');
+$router->get('/logout', UserController::class, 'logout');
 
 // App
 $router->get('/app', HomeController::class, 'app');

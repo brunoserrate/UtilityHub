@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 $_SESSION["requested_via_browser"] = true;
 
 use App\Controller;

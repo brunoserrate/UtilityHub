@@ -8,22 +8,31 @@ class Router
 {
     protected $routes = [];
 
-    private function addRoute($route, $controller, $action, $method) {
+    private function addRoute($route, $controller, $action, $method, $authRequired = false) {
 
-        $this->routes[$method][$route] = ['controller' => $controller, 'action' => $action];
+        $this->routes[$method][$route] = [
+            'controller' => $controller,
+            'action' => $action,
+            'authRequired' => $authRequired
+        ];
     }
 
-    public function get($route, $controller, $action) {
-        $this->addRoute($route, $controller, $action, "GET");
+    public function get($route, $controller, $action, $authRequired = false) {
+        $this->addRoute($route, $controller, $action, "GET", $authRequired);
     }
 
-    public function post($route, $controller, $action) {
-        $this->addRoute($route, $controller, $action, "POST");
+    public function post($route, $controller, $action, $authRequired = false) {
+        $this->addRoute($route, $controller, $action, "POST", $authRequired);
     }
 
     public function dispatch() {
         $uri = strtok($_SERVER['REQUEST_URI'], '?');
         $method =  $_SERVER['REQUEST_METHOD'];
+
+        if(!$this->checkAuth() && $this->routes[$method][$uri]['authRequired']) {
+            header('Location: /login');
+            return;
+        }
 
         $fileTypes = ['js', 'css', 'jpg', 'png', 'gif'];
 
@@ -45,5 +54,12 @@ class Router
             $controller->notFound();
             return;
         }
+    }
+
+    public function checkAuth() {
+        if(session_status() == PHP_SESSION_NONE)
+            session_start();
+
+        return isset($_SESSION['user']);
     }
 }

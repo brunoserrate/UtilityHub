@@ -21,18 +21,18 @@ $router->post('/register', UserController::class, 'store');
 $router->get('/logout', UserController::class, 'logout');
 
 // App
-$router->get('/app', HomeController::class, 'app');
+$router->get('/app', HomeController::class, 'app', true);
 
 // Password Generator
-$router->get('/app/password-generator', PasswordGeneratorController::class, 'index');
-$router->post('/app/password-generator', PasswordGeneratorController::class, 'generate');
+$router->get('/app/password-generator', PasswordGeneratorController::class, 'index', true);
+$router->post('/app/password-generator', PasswordGeneratorController::class, 'generate', true);
 
 // Unit Converter
-$router->get('/app/unit-converter', UnitConverterController::class, 'index');
-$router->post('/app/unit-converter', UnitConverterController::class, 'convert');
+$router->get('/app/unit-converter', UnitConverterController::class, 'index', true);
+$router->post('/app/unit-converter', UnitConverterController::class, 'convert', true);
 
 // Random Number Generator
-$router->get('/app/random-number-generator', RandomNumberController::class, 'index');
-$router->post('/app/random-number-generator', RandomNumberController::class, 'generate');
+$router->get('/app/random-number-generator', RandomNumberController::class, 'index', true);
+$router->post('/app/random-number-generator', RandomNumberController::class, 'generate', true);
 
 $router->dispatch();

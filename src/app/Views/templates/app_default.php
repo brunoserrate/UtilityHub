@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 $_SESSION["requested_via_browser"] = true;
 
 use App\Controller;
@@ -44,8 +42,8 @@ $controller = new Controller();
 
                     <div class="dropdown py-sm-4 mt-sm-auto ms-auto ms-sm-0 flex-shrink-1">
                         <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="https://api.dicebear.com/8.x/initials/svg?seed=<?= $_SESSION['user']['name'] ?>" alt="<?= $_SESSION['user']['name']?>" width="28" height="28" class="rounded-circle">
-                            <span class="d-none d-sm-inline mx-1"><?= $_SESSION['user']['name']?></span>
+                            <img src="https://api.dicebear.com/8.x/initials/svg?seed=<?= $_SESSION['user']['name'] ?? 'User' ?>" alt="<?= $_SESSION['user']['name'] ?? 'user' ?>" width="28" height="28" class="rounded-circle">
+                            <span class="d-none d-sm-inline mx-1"><?= $_SESSION['user']['name'] ?? 'user' ?></span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
                             <li><a class="dropdown-item" href="/logout"><?= __("Sign out") ?></a></li>

@@ -9,7 +9,7 @@
             <p>Utilize o formulário abaixo para gerar uma senha segura.</p>
         </div>
     </div>
-    </hr>
+    <hr>
     <div class="row">
         <div class="col">
             <form action="/app/password-generator" method="post">

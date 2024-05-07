@@ -15,7 +15,7 @@ function getBrowserLanguage() {
  */
 function __(string $key) {
     $lang = getBrowserLanguage();
-    $path = join(DIRECTORY_SEPARATOR, [ROOT_PATH, 'src', 'resources', 'lang', $lang . '.php']);
+    $path = join(DIRECTORY_SEPARATOR, [ROOT_PATH, 'src', 'resources', 'lang', strtolower($lang) . '.php']);
     $translations = require $path;
     return $translations[$key] ?? $key;
 }
